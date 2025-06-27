@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitácora de Estrategias de Opciones</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Bitácora de Estrategias de Opciones</h1>
+    </header>
+
+    <nav id="tabs-container">
+        <!-- Las pestañas de vencimiento se generarán aquí -->
+        <!-- Ejemplo: <button class="tab-button active" data-vencimiento="2023-12-31">31 Dic 2023</button> -->
+    </nav>
+
+    <main id="operations-list">
+        <!-- Las tarjetas de operaciones se mostrarán aquí -->
+        <!-- Ejemplo de tarjeta:
+        <div class="operation-card" data-id="1">
+            <div class="card-header">
+                <h2>SPY - Iron Condor</h2>
+                <p>Entrada: 2023-11-15</p>
+            </div>
+            <div class="card-details" style="display:none;">
+                <p><strong>Justificación:</strong> Lorem ipsum...</p>
+                <div class="legs-container">
+                    <div class="leg-item">COMPRA 1 CALL @ 450 (Vto: 2023-12-31) Prima: 2.50</div>
+                    <div class="leg-item">VENTA 1 CALL @ 455 (Vto: 2023-12-31) Prima: 1.80</div>
+                </div>
+                <div class="images-container">
+                    <img src="/uploads/imagen1.jpg" alt="Imagen de la operación">
+                </div>
+                <button class="delete-button" data-id="1">Eliminar</button>
+            </div>
+        </div>
+        -->
+    </main>
+
+    <button id="new-operation-btn" class="fab">+</button>
+
+    <div id="operation-modal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Nueva Operación</h2>
+            <form id="operation-form">
+                <div class="form-group">
+                    <label for="subyacente">Subyacente:</label>
+                    <input type="text" id="subyacente" name="subyacente" required>
+                </div>
+                <div class="form-group">
+                    <label for="fecha_entrada">Fecha de Entrada:</label>
+                    <input type="datetime-local" id="fecha_entrada" name="fecha_entrada" required>
+                </div>
+                <div class="form-group">
+                    <label for="justificacion">Justificación:</label>
+                    <textarea id="justificacion" name="justificacion"></textarea>
+                </div>
+
+                <h3>Legs de la Estrategia</h3>
+                <div id="legs-input-area">
+                    <!-- El primer leg se añade aquí por defecto o por JS -->
+                </div>
+                <button type="button" id="add-leg-btn" class="secondary-button"> + Añadir Leg</button>
+
+                <div class="form-group">
+                    <label for="imagenes">Imágenes (opcional):</label>
+                    <input type="file" id="imagenes" name="imagenes[]" multiple accept="image/*">
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="primary-button">Guardar Operación</button>
+                    <button type="button" id="cancel-modal-btn" class="secondary-button">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
